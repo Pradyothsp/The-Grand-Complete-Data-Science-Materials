@@ -59,7 +59,7 @@ def fetch_news(name, date_from, date_to):
     
     url = 'https://newsapi.org/v2/everything?q={}&from={}&to=()&language=en&sortBy=popularity&apiKey=a1e91cf9073f4b85aa784fe5f37e6294'.format(query, date_from, date_to)
         
-    data = requests.get(url, headers=headers).json()
+    data = requests.get(url, headers=headers, timeout=60).json()
     # print('------------------------------------------------------------------------------------------------------------------')
 
     tot_res = data['totalResults']
@@ -93,7 +93,7 @@ def fetch_news(name, date_from, date_to):
                     ls_content.append(content)
                     publish_date.append(date)
 
-            data = requests.get(next_page_url, headers=headers).json()
+            data = requests.get(next_page_url, headers=headers, timeout=60).json()
             
         except:
             pass

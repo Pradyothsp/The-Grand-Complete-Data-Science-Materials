@@ -24,7 +24,7 @@ from langchain.schema import SystemMessage
 
 # Custome Tools
 def get_website_info(url):
-    response = requests.get(url)
+    response = requests.get(url, timeout=60)
     soup = BeautifulSoup(response.text, 'html.parser')
     
     title = soup.find('title').text

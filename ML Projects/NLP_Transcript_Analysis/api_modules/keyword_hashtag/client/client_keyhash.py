@@ -27,8 +27,8 @@ def client_script():
                                 headers={'Content-type': 'application/json'},
                                 json={'title': 'test title', 'model': 'all-mpnet-base-v2',
                                         'transcript': transcript_data, 'summary' : summary_data
-                                        }
-                                )
+                                        }, 
+                                timeout=60)
         et = time.time()
         if result.status_code == 201 or result.status_code == 200:
             print(result.json())
