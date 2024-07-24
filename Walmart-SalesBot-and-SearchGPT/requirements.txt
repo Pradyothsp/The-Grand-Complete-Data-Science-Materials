@@ -22,3 +22,4 @@ wikipedia
 arxiv
 numexpr
 uvicorn
+security==1.3.0

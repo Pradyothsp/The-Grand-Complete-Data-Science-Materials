@@ -1,9 +1,10 @@
 import streamlit as st
-import requests
 import sounddevice as sd
 import wavio
 from langchain import OpenAI
 import os
+from security import safe_requests
+
 os.environ["OPENAI_API_KEY"]="API_KEY" 
 from openai import OpenAI
 client = OpenAI()
@@ -41,7 +42,7 @@ if st.button(label="Click here to speak"):
     quality="standard",
     n=1)
     image_url = response.data[0].url
-    image_response = requests.get(image_url)
+    image_response = safe_requests.get(image_url)
 
     ##getting the image from the url produced by the model
     image_path = "generated_image.jpg"

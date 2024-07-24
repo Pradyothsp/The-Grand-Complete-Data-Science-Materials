@@ -1,30 +1,25 @@
 """This code is used for /searchgpt endpoint in fastapi. It is used to process the message, search for query, gather information and return the response."""
-import requests
 import os
 from dotenv import load_dotenv
+from security import safe_requests
+
 load_dotenv()
 openai_org_id = os.getenv('OpenAI_ORG_ID')
 openai_api_key = os.getenv('OPENAI_API_KEY')
 Open_Weather_API_Key = os.getenv("OpenWeather_API_Key")
 
-from langchain.agents import initialize_agent, Tool
+from langchain.agents import initialize_agent
 from langchain.agents import AgentType
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import MessagesPlaceholder
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
-from langchain.chains.summarize import load_summarize_chain
 from langchain.tools import BaseTool
 from langchain.agents import load_tools
-from pydantic import BaseModel, Field
-from typing import Type
 from bs4 import BeautifulSoup
-import requests
-import json
-from langchain.schema import SystemMessage
 
 # Custome Tools
 def get_website_info(url):
-    response = requests.get(url)
+    response = safe_requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
     title = soup.find('title').text
