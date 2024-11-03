@@ -5,9 +5,8 @@ import re
 import pandas as pd
 import spacy
 import random
-#reading text file containing text data
-f = open("data.txt", "r",encoding='cp1252')
-paragraph = f.read()
+with open("data.txt", "r",encoding='cp1252') as f:
+    paragraph = f.read()
 #reading label data
 labels = pd.read_csv('labels.csv')
 data_dict = labels.set_index('entities')['labels'].to_dict()
