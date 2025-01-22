@@ -4,7 +4,8 @@ from spacy import displacy
 import re
 import pandas as pd
 import spacy
-import random
+import secrets
+
 #reading text file containing text data
 f = open("data.txt", "r",encoding='cp1252')
 paragraph = f.read()
@@ -60,7 +61,7 @@ def train_spacy(data,iterations):
         optimizer = nlp.begin_training()
         for itn in range(iterations):
             print("Starting iteration " + str(itn))
-            random.shuffle(TRAIN_DATA)
+            secrets.SystemRandom().shuffle(TRAIN_DATA)
             losses = {}
             for text, annotations in TRAIN_DATA:
                 nlp.update(
