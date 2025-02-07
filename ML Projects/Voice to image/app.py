@@ -41,7 +41,7 @@ if st.button(label="Click here to speak"):
     quality="standard",
     n=1)
     image_url = response.data[0].url
-    image_response = requests.get(image_url)
+    image_response = requests.get(image_url, timeout=60)
 
     ##getting the image from the url produced by the model
     image_path = "generated_image.jpg"

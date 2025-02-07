@@ -53,7 +53,7 @@ class VideoDownloader:
           The path to the downloaded file.
         """
         try:
-            response = requests.get(self.url, stream=True)
+            response = requests.get(self.url, stream=True, timeout=60)
             filename = self.url.split("/")[-1] # https://youtube.com/ -> how to get job in data science
             with open(os.path.join(self.save_path, f"{filename}"), "wb") as f:
                 for chunk in response.iter_content(chunk_size=4096):

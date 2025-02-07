@@ -21,14 +21,14 @@ if not os.path.exists(subdirectory_path):
 # Define the URL to fetch data
 url = "https://content.guardianapis.com/technology/artificialintelligenceai?&api-key=01dd6b39-66d5-4ed8-8335-9dd17fe41a3f&type=article&page=1"
 
-response = requests.get(url)  # Fetch data from the URL
+response = requests.get(url, timeout=60)  # Fetch data from the URL
 x = response.json()  # Convert the response to JSON format
 
 web_urls = [item['webUrl'] for item in x['response']['results']]
 
 def save_content_to_file(url, folder, filename):
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=60)
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
 

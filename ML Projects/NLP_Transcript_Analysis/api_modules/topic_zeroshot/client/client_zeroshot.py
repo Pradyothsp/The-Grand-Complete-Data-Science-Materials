@@ -21,8 +21,8 @@ def client_script():
         result = requests.post(f'http://{ZERO_URL}:{ZEROSHOT_PORT}/{API_VERSION}/prediction',
                                headers={'Content-type': 'application/json'},
                                json={'title' : 'test title', 'model': 'bart-large-mnli',
-                                     'summary': summary_data, 'labels' : ['sports','music']}
-                               )
+                                     'summary': summary_data, 'labels' : ['sports','music']}, 
+                               timeout=60)
 
         et = time.time()
         if result.status_code == 201 or result.status_code == 200:
