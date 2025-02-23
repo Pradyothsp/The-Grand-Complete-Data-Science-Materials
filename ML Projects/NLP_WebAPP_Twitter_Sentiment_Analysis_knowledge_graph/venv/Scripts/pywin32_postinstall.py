@@ -16,8 +16,6 @@ except:
 # Send output somewhere so it can be found if necessary...
 import tempfile
 
-tee_f = open(os.path.join(tempfile.gettempdir(), "pywin32_postinstall.log"), "w")
-
 
 class Tee:
     def __init__(self, file):
