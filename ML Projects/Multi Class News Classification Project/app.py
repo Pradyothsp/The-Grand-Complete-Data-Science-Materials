@@ -1,7 +1,6 @@
 import streamlit as st
 import keras
 import tensorflow as tf
-import requests
 import numpy as np
 import nltk
 import spacy
@@ -12,6 +11,7 @@ import pycountry
 from keras.preprocessing.text import one_hot,Tokenizer
 from keras.utils import pad_sequences
 import datetime
+from security import safe_requests
 
 #Downloading some dependencies
 # nltk.download('stopwords')
@@ -59,7 +59,7 @@ def fetch_news(name, date_from, date_to):
     
     url = 'https://newsapi.org/v2/everything?q={}&from={}&to=()&language=en&sortBy=popularity&apiKey=a1e91cf9073f4b85aa784fe5f37e6294'.format(query, date_from, date_to)
         
-    data = requests.get(url, headers=headers).json()
+    data = safe_requests.get(url, headers=headers).json()
     # print('------------------------------------------------------------------------------------------------------------------')
 
     tot_res = data['totalResults']
@@ -93,7 +93,7 @@ def fetch_news(name, date_from, date_to):
                     ls_content.append(content)
                     publish_date.append(date)
 
-            data = requests.get(next_page_url, headers=headers).json()
+            data = safe_requests.get(next_page_url, headers=headers).json()
             
         except:
             pass
