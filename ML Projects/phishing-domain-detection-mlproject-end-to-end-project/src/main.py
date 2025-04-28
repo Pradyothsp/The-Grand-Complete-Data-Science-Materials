@@ -4,16 +4,16 @@ from flask import Flask, request, render_template, jsonify
 from flask import Response
 from flask_cors import CORS, cross_origin
 from src.ML_pipelines.stage_03_prediction import prediction
-import pickle
 # os.putenv('LANG', 'en_US.UTF-8')
 # os.putenv('LC_ALL', 'en_US.UTF-8')
 from src.training_Validation_Insertion import train_validation
+import fickling
 
 app = Flask(__name__)
 # dashboard.bind(app)
 CORS(app)
 filename = "XGBoost.pkl"
-model = pickle.load(open(filename, 'rb'))
+model = fickling.load(open(filename, 'rb'))
 
 @app.route("/", methods=['GET'])
 @cross_origin()

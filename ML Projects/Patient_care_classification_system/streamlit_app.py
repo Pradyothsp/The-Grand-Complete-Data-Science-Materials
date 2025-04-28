@@ -3,14 +3,14 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
-import pickle
 from sklearn.ensemble import RandomForestClassifier
+import fickling
 
 st.header("Patient Care Classification System")
 
 # Load the trained Random Forest model from the pickle file
 with open("/workspaces/The-Grand-Complete-Data-Science-Materials/ML Projects/Patient_care_classification_system/random_forest_model.pkl", "rb") as model_file:
-    rf_model = pickle.load(model_file)
+    rf_model = fickling.load(model_file)
 
 # User input
 st_HAEMATOCRIT = st.number_input("Enter HAEMATOCRIT Value: ")

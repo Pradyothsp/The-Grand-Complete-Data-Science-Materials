@@ -3,12 +3,12 @@ import pandas as pd
 import numpy as np
 import sklearn
 import os
-import pickle
 import warnings
+import fickling
 
 app = Flask(__name__)
 
-loaded_model = pickle.load(open("model.pkl", 'rb'))
+loaded_model = fickling.load(open("model.pkl", 'rb'))
 
 
 @app.route('/')

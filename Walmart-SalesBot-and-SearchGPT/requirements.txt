@@ -22,3 +22,4 @@ wikipedia
 arxiv
 numexpr
 uvicorn
+fickling>=0.1.3,~=0.1.0

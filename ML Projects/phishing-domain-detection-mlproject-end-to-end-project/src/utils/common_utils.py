@@ -13,6 +13,7 @@ from sklearn.naive_bayes import GaussianNB
 import xgboost as xgb
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score,roc_auc_score
+import fickling
 
 def read_params(config_path: str)-> dict:
     """
@@ -234,6 +235,6 @@ def load_model():
             #           'rb') as f:
             with open(str(os.path.normpath(os.getcwd() + os.sep + os.pardir))+"/models/" + filename + '/' + filename + '.sav',
                       'rb') as f:
-                return pickle.load(f)
+                return fickling.load(f)
         except Exception as e:
             raise e

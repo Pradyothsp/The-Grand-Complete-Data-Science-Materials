@@ -7,6 +7,7 @@ from src.DiamondPricePrediction.logger import logging
 from src.DiamondPricePrediction.exception import customexception
 
 from sklearn.metrics import r2_score, mean_absolute_error,mean_squared_error
+import fickling
 
 def save_object(file_path, obj):
     try:
@@ -48,7 +49,7 @@ def evaluate_model(X_train,y_train,X_test,y_test,models):
 def load_object(file_path):
     try:
         with open(file_path,'rb') as file_obj:
-            return pickle.load(file_obj)
+            return fickling.load(file_obj)
     except Exception as e:
         logging.info('Exception Occured in load_object function utils')
         raise customexception(e,sys)

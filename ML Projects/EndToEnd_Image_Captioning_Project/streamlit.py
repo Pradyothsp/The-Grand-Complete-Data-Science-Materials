@@ -8,10 +8,10 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
 from PIL import Image
-from pickle import load
+import fickling
 
 # Load tokenizer
-tokenizer = load(open('tokenizer1.pkl', 'rb'))
+tokenizer = fickling.load(open('tokenizer1.pkl', 'rb'))
 max_len = 34
 
 # Load image captioning model

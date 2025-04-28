@@ -1,6 +1,6 @@
-import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
+import fickling
 
 # Change Name & Logo
 st.set_page_config(page_title="Diease Prediction", page_icon="⚕️")
@@ -18,15 +18,15 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('Models/diabetes_model.sav', 'rb'))
+diabetes_model = fickling.load(open('Models/diabetes_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('Models/heart_disease_model.sav', 'rb'))
+heart_disease_model = fickling.load(open('Models/heart_disease_model.sav', 'rb'))
 
-parkinsons_model = pickle.load(open('Models/parkinsons_model.sav', 'rb'))
+parkinsons_model = fickling.load(open('Models/parkinsons_model.sav', 'rb'))
 
-lungs_disease_model = pickle.load(open('Models/lungs_disease_model.sav', 'rb'))
+lungs_disease_model = fickling.load(open('Models/lungs_disease_model.sav', 'rb'))
 
-thyroid_model = pickle.load(open('Models/Thyroid_model.sav', 'rb'))
+thyroid_model = fickling.load(open('Models/Thyroid_model.sav', 'rb'))
 
 
 # sidebar for navigation

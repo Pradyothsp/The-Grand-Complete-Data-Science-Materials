@@ -1,14 +1,14 @@
 import streamlit as st
-import pickle
 import numpy as np
 import pandas as pd
+import fickling
 
 
 with open('model/model.pkl','rb') as file:
-            model = pickle.load(file)
+            model = fickling.load(file)
             
 with open('model/pipe.pkl','rb') as file:
-            preprocessor = pickle.load(file)
+            preprocessor = fickling.load(file)
 
 def main():
     st.title('Cancer Surivival Prediction')

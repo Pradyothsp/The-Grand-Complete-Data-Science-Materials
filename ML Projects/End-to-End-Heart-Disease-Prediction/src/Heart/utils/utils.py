@@ -6,6 +6,7 @@ import pandas as pd
 from src.Heart.logger import logging
 from sklearn.metrics import accuracy_score
 from src.Heart.exception import customexception
+import fickling
 
 def save_object(file_path, obj):
     try:
@@ -32,7 +33,7 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
 def load_object(file_path):
     try:
         with open(file_path,'rb') as file_obj:
-            return pickle.load(file_obj)
+            return fickling.load(file_obj)
     except Exception as e:
         logging.info('Exception Occured in load_object function utils')
         raise customexception(e,sys)

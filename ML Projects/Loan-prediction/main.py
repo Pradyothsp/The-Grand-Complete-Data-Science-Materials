@@ -2,14 +2,15 @@ import pandas as pd
 import numpy as np
 from pyscript import Element
 from js import document, window
-import pickle
 
 # Disable warnings by pyscript appearing in the browser.
 import warnings
+import fickling
+
 warnings.filterwarnings("ignore")
 
 with open("model.pkl", "rb") as f:
-    loaded_model = pickle.load(f)
+    loaded_model = fickling.load(f)
 
 def get_predictions():
     data = {
