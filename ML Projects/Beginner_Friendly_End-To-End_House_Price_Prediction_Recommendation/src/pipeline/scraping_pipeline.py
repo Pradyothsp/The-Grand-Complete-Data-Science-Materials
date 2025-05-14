@@ -11,7 +11,7 @@ class ImageScrappingPipeline:
     def scrape_div_content(url):
         try:
             # Step 1: Fetch the HTML content of the webpage
-            response = requests.get(url)
+            response = requests.get(url, timeout=60)
             response.raise_for_status()  # Check for any errors in the request
 
             # Step 2: Parse the HTML content using BeautifulSoup

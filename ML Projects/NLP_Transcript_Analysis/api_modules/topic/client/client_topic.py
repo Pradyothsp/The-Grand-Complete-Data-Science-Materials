@@ -22,8 +22,8 @@ def client_script():
         st = time.time()
         result = requests.post(f'http://{HOST_URL}:{PREDICTION_PORT}/{API_VERSION}/prediction',
                                 headers={'Content-type': 'application/json'},
-                                json={'title': 'sample title', 'model': 'all-mpnet-base-v2', 'summary' : summary_data}
-                                )
+                                json={'title': 'sample title', 'model': 'all-mpnet-base-v2', 'summary' : summary_data}, 
+                                timeout=60)
         et = time.time()
         if result.status_code == 201 or result.status_code == 200:
             print(result.json())

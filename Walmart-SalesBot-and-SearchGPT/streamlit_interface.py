@@ -56,12 +56,12 @@ def main():
 def get_walmart_bot_response(user_input):
     endpoint = "http://localhost:5000/walmartbot"
     data = {"messages": [user_input]}
-    response = requests.post(endpoint, json=data)
+    response = requests.post(endpoint, json=data, timeout=60)
     return response.json()
 
 def get_searchgpt_response(user_input):
     endpoint = "http://localhost:5000/searchgpt"
-    reply = requests.post(endpoint, json={"text": user_input})
+    reply = requests.post(endpoint, json={"text": user_input}, timeout=60)
     response = {"messages": [reply.json()]}
     return response
 
