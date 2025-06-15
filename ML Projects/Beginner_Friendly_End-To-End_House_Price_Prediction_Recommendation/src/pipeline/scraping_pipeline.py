@@ -2,6 +2,7 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 from src.exception import CustomException
+from security import safe_requests
 
 
 class ImageScrappingPipeline:
@@ -11,7 +12,7 @@ class ImageScrappingPipeline:
     def scrape_div_content(url):
         try:
             # Step 1: Fetch the HTML content of the webpage
-            response = requests.get(url)
+            response = safe_requests.get(url)
             response.raise_for_status()  # Check for any errors in the request
 
             # Step 2: Parse the HTML content using BeautifulSoup
